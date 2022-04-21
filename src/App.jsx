@@ -1,6 +1,8 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import { getOptions } from "./utils/pokemon"
+import  Weakness  from "./components/Weakness"
+import Pokemon from "./components/Pokemon"
 
 function App() {
   const [refList, setRefList] = useState([])
@@ -8,6 +10,8 @@ function App() {
   const [searchName, setSearchName] = useState("")
   const [typeFilter, setTypeFilter] = useState("")
   const [weaknessFilter, setWeaknessFilter] = useState("")
+  const [isVisible, setIsVisible] = useState(false)
+
 
   async function fetchPokemon() {
     let res = await fetch(
@@ -47,6 +51,8 @@ function updateWeakness(weakness){
     setWeaknessFilter(weakness);
     searchPokemon(searchName, typeFilter, weakness) 
 }
+
+
 //make image into button that shows Type and Weaknesses instead of displaying outright
 
   useEffect(() =>{
@@ -81,35 +87,16 @@ function updateWeakness(weakness){
           {types.map((t) => <option key={t} value={t}>{t}</option>)}
         </select><br/>
         <label className="label">Weaknesses</label>
-        <select onChange={(e) => updateWeakness(e.target.value)} name="searchWeakness" id="searchWeakness">
-          <option value={""}>Select Weakness</option>
-          {weaknesses.map((w) => <option key={w} value={w}>{w}</option>)}
-        </select>
+          <Weakness 
+          updateWeakness={updateWeakness} 
+          weaknesses={weaknesses}
+          />
       </div>
     </header>
     <div>
       {displayList.map((pokemon) => {
         return(
-          <div key={pokemon.id}>
-            <img 
-            src={pokemon.img}
-            
-            /><br/>
-            <small>{pokemon.num}</small>
-            <h3>{pokemon.name}</h3>
-            <h3>Type</h3>
-              <ul>
-                {pokemon.type.map((t) =>(
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
-            <h3>Weaknesses</h3>
-              <ul>
-                {pokemon.weaknesses.map((w) => (
-                  <li key={w}>{w}</li>
-                ))}
-              </ul>
-          </div>
+         <Pokemon pokemon={pokemon}/>
         )
       })}
     </div>
