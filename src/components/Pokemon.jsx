@@ -18,8 +18,8 @@ function Pokemon(props){
         />
         <br/>
         <small>{pokemon.num}</small>
-        <h3>{pokemon.name}</h3>
-           <ListType pokemon={pokemon} visible={isVisible}/>
+        <h3 className="list">{pokemon.name}</h3>
+           <ListType pokemon={pokemon} visible={isVisible} />
            <ListWeakness pokemon={pokemon} visible={isVisible}/>
       </div>
     )

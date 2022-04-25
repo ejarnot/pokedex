@@ -22,3 +22,22 @@ header{
   font-weight: bold;
   color: aquamarine;
 }
+
+.list{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img:hover{
+  cursor: pointer;
+  border: 2px dashed grey
+}
+
+#body-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#pokemon-grid{
+  border: 1px dashed grey
+}

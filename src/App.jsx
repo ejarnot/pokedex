@@ -67,7 +67,7 @@ function updateWeakness(weakness){
       <header>
       <h1 id="title">Pokedex</h1>
       <div id="searchBar">
-        <label className="label">Name</label>
+        <label className="label">Name</label><br/>
         <input
           type="text"
           id="searchName"
@@ -90,10 +90,10 @@ function updateWeakness(weakness){
           />
       </div>
     </header>
-    <div>
+    <div id="body-grid">
       {displayList.map((pokemon) => {
         return(
-         <Pokemon pokemon={pokemon}/>
+         <Pokemon pokemon={pokemon} id="pokemon-grid"/>
         )
       })}
     </div>
