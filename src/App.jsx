@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import { getOptions } from "./utils/pokemon"
 import  Weakness  from "./components/Weakness"
+import TypeFilter from "./components/TypeFilter"
 import Pokemon from "./components/Pokemon"
 
 function App() {
@@ -78,14 +79,10 @@ function updateWeakness(weakness){
         
         </input><br/>
         <label className="label">Type</label>
-        <select 
-          onChange={(e) => updateType(e.target.value)} 
-          name="searchType" 
-          id="searchType"
-        >
-          <option value={""}>Select Type</option>
-          {types.map((t) => <option key={t} value={t}>{t}</option>)}
-        </select><br/>
+        <TypeFilter 
+        updateType={updateType}
+        types={types}
+        />
         <label className="label">Weaknesses</label>
           <Weakness 
           updateWeakness={updateWeakness} 

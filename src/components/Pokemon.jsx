@@ -1,5 +1,6 @@
 import * as React from "react";
 import ListWeakness from "./Listweakness"
+import ListType from "./ListType"
 import { useState } from "react"; 
 
 function Pokemon(props){
@@ -18,12 +19,7 @@ function Pokemon(props){
         <br/>
         <small>{pokemon.num}</small>
         <h3>{pokemon.name}</h3>
-        <h3>Type</h3>
-          <ul>
-            {pokemon.type.map((t) =>(
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
+           <ListType pokemon={pokemon} visible={isVisible}/>
            <ListWeakness pokemon={pokemon} visible={isVisible}/>
       </div>
     )
