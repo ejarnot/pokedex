@@ -8,7 +8,7 @@ function Pokemon(props){
     const [isVisible, setIsVisible] = useState(false)
 
     return(         
-      <div key={pokemon.id}>
+      <div key={pokemon.id} className="list">
         <img 
             src={pokemon.img}
             onClick={(e) =>{
@@ -18,8 +18,8 @@ function Pokemon(props){
         />
         <br/>
         <small>{pokemon.num}</small>
-        <h3 className="list">{pokemon.name}</h3>
-           <ListType pokemon={pokemon} visible={isVisible} />
+        <h3>{pokemon.name}</h3>
+           <ListType pokemon={pokemon} visible={isVisible}/>
            <ListWeakness pokemon={pokemon} visible={isVisible}/>
       </div>
     )
